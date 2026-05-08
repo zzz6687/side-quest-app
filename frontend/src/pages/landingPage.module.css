@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap");
+
+.landing {
+  --cream: #f7f0e6;
+  --blush: #f2d4c8;
+  --sage: #b8c9b5;
+  --caramel: #c07a4f;
+  --brown: #3b2e28;
+  --muted: #7a6a62;
+  --white: #ffffff;
+
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 90px 24px 100px;
+  background-color: var(--cream);
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 18px,
+      rgba(192, 122, 79, 0.1) 18px,
+      rgba(192, 122, 79, 0.1) 19px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 18px,
+      rgba(192, 122, 79, 0.1) 18px,
+      rgba(192, 122, 79, 0.1) 19px
+    );
+  overflow: hidden;
+}
+
+.heroEyebrow {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 20px;
+  padding: 6px 18px;
+  border: 1px solid rgba(192, 122, 79, 0.35);
+  border-radius: 999px;
+}
+
+.heroTitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.1;
+  color: var(--brown);
+  margin: 0 auto 22px;
+  max-width: 700px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.heroTitle em {
+  font-style: italic;
+  color: var(--caramel);
+}
+
+.heroSub {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 34px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: var(--caramel);
+  color: white;
+  box-shadow: 0 6px 20px rgba(192, 122, 79, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(192, 122, 79, 0.45);
+}
+.btnOutline {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 34px;
+  border-radius: 999px;
+  border: 1.5px solid var(--brown);
+  background: transparent;
+  color: var(--brown);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+.btnOutline:hover {
+  transform: translateY(-2px);
+  background: rgba(59, 46, 40, 0.06);
+}
+
+.howSection {
+  padding: 90px 40px;
+  text-align: center;
+  background: var(--white);
+}
+
+.sectionLabel {
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--caramel);
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(26px, 3vw, 38px);
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 56px;
+  letter-spacing: 0.03em;
+}
+
+.stepsGrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step {
+  flex: 1;
+  padding: 32px 24px;
+  position: relative;
+}
+
+.stepLine {
+  width: 60px;
+  height: 1px;
+  background: var(--blush);
+  border-top: 2px dashed var(--caramel);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.stepNumber {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--blush);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stepIcon {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.step h3 {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+@media (max-width: 700px) {
+  .stepsGrid {
+    flex-direction: column;
+  }
+  .stepLine {
+    width: 1px;
+    height: 40px;
+    border-top: none;
+    border-left: 2px dashed var(--caramel);
+  }
+}
+
+.categoriesSection {
+  padding: 90px 40px;
+  text-align: center;
+  background: var(--cream);
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.catCard {
+  border-radius: 24px;
+  padding: 48px 36px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.catCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(59, 46, 40, 0.12);
+}
+
+.catCardOutdoor {
+  background: var(--sage);
+  color: var(--brown);
+}
+.catCardIndoor {
+  background: var(--blush);
+  color: var(--brown);
+}
+
+.catIcon {
+  font-size: 40px;
+  margin-bottom: 18px;
+}
+
+.catCard h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+.catCard p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.catPoints {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(59, 46, 40, 0.1);
+  color: var(--brown);
+}
+
+@media (max-width: 600px) {
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer {
+  background: var(--brown);
+  color: rgba(247, 240, 230, 0.45);
+  text-align: center;
+  padding: 28px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}

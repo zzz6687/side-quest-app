@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap");
+
+body {
+  background-color: #f7f0e6;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 18px,
+      rgba(192, 122, 79, 0.08) 18px,
+      rgba(192, 122, 79, 0.08) 19px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 18px,
+      rgba(192, 122, 79, 0.08) 18px,
+      rgba(192, 122, 79, 0.08) 19px
+    );
+  font-family: "Caveat", cursive;
+  font-size: 18px;
+  color: #8c7851;
+}
+
+.container {
+  padding-top: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #020826;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  background: #fffffe;
+  width: 100%;
+}
+
+.cardPhoto {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  justify-content: center;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
+.acceptBtn {
+  width: 90px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid #e8e0d5;
+  background: #fff5f5;
+  color: #c0392b;
+  font-family: "Caveat", cursive;
+  font-size: 17px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.acceptBtn:hover {
+  background: #f3dfdf;
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+}
+
+.rejectBtn {
+  width: 90px;
+  height: 30px;
+  border-radius: 6px;
+  border: none;
+  background: #8c7851;
+  color: white;
+  font-family: "Caveat", cursive;
+  font-size: 17px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.rejectBtn:hover {
+  background: #67583b;
+  transform: scale(1.03);
+  transition: all 0.2s ease-in-out;
+}
