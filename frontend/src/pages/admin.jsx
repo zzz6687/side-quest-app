@@ -7,9 +7,12 @@ const Admin = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/submission", {
-          method: "GET",
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/submission`,
+          {
+            method: "GET",
+          }
+        );
 
         const data = await response.json();
 
@@ -28,7 +31,7 @@ const Admin = () => {
   const handleApprove = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/submission/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/submission/${id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -55,7 +58,7 @@ const Admin = () => {
   const handleReject = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/submission/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/submission/${id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -89,7 +92,9 @@ const Admin = () => {
                 {item.image && (
                   <img
                     className={styles.cardPhoto}
-                    src={`http://localhost:3001/uploads/${item.image}`}
+                    src={`${import.meta.env.VITE_API_URL}/uploads/${
+                      item.image
+                    }`}
                     alt="preview"
                   />
                 )}

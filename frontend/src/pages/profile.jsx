@@ -9,7 +9,9 @@ const Profile = () => {
     const fetchSubmissions = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/submission/my?userId=${user._id}`,
+          `${import.meta.env.VITE_API_URL}/api/submission/my?userId=${
+            user._id
+          }`,
           {
             method: "GET",
           }
@@ -59,7 +61,9 @@ const Profile = () => {
                 {item.image && (
                   <img
                     className={styles.cardPhoto}
-                    src={`http://localhost:3001/uploads/${item.image}`}
+                    src={`${import.meta.env.VITE_API_URL}/uploads/${
+                      item.image
+                    }`}
                     alt="preview"
                   />
                 )}

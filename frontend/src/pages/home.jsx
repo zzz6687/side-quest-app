@@ -10,9 +10,12 @@ const Home = () => {
 
   const getRandomQuest = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/quests", {
-        method: "GET",
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/quests`,
+        {
+          method: "GET",
+        }
+      );
 
       const quests = await response.json();
 
@@ -48,11 +51,14 @@ const Home = () => {
     formData.append("image", imageFile);
 
     try {
-      const response = await fetch("http://localhost:3001/api/submission", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-        body: formData,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/submission`,
+        {
+          method: "POST",
+          headers: { Authorization: `Bearer ${token}` },
+          body: formData,
+        }
+      );
 
       const data = await response.json();
 
