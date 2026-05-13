@@ -2,15 +2,21 @@ const Submission = require("../models/Submission");
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const path = require("path");
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // уникальное имя файла: время и оригинальное расширение
-    // пример: 1746394821000.jpg (время в плоть до миллисекунд чтобы ни у кого не совпадало)
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "side-quest-app",
+    allowed_formats: ["jpg", "jpeg", "png", "webp"],
   },
 });
 
@@ -52,7 +58,7 @@ router.post("/submission", (req, res) => {
       quest: req.body.quest,
       user: req.body.user,
       status: "pending",
-      image: req.file ? req.file.filename : null,
+      image: req.file ? req.file.path : null,
       date: req.body.date,
     });
 
