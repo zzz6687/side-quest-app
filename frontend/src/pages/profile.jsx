@@ -61,9 +61,7 @@ const Profile = () => {
                 {item.image && (
                   <img
                     className={styles.cardPhoto}
-                    src={`${import.meta.env.VITE_API_URL}/uploads/${
-                      item.image
-                    }`}
+                    src={item.image}
                     alt="preview"
                   />
                 )}
