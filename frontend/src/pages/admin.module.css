@@ -21,10 +21,16 @@ body {
   color: #8c7851;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .container {
-  padding-top: 10px;
-  width: 50%;
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .card {
@@ -36,6 +42,7 @@ body {
   margin-bottom: 12px;
   background: #fffffe;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .cardPhoto {
@@ -98,3 +105,22 @@ body {
   transform: scale(1.03);
   transition: all 0.2s ease-in-out;
 }
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 10px 8px;
+  }
+
+  .card {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cardPhoto {
+    width: 100%;
+    height: 200px;
+  }
+
+  .cardInfo {
+  

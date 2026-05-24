@@ -1,10 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 header {
   border-bottom: 1px solid #e8e0d5;
   padding: 14px 10%;
   background: #f9f4ef;
+}
+
+.logoSolo {
+  display: none;
 }
 
 .logo {
@@ -20,12 +28,6 @@ header {
   font-style: italic;
   font-size: 16px;
   color: #716040;
-}
-
-.user-section span {
-  font-family: "Playfair Display", serif;
-  font-size: 16px;
-  color: #9e8c72;
 }
 
 .logoutBtn,
@@ -45,7 +47,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 10% 20px;
+  padding: 20px 10%;
 }
 
 header a {
@@ -75,13 +77,71 @@ a:hover {
 }
 
 .user-section span {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  color: #9e8c72;
   margin-bottom: 4px;
-  font-size: 15px;
 }
 
-.logoutBtn:hover,
 .logoutBtn:hover {
   transform: scale(1.03);
   transition: all 0.2s ease-in-out;
   background-color: #d9cfcf;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 14px 5%;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .logoutBtn,
+  .loginBtn {
+    font-size: 9px;
+    padding: 4px 8px;
+    margin-bottom: 0px;
+  }
+
+  .user-section {
+    gap: 8px;
+  }
+
+  .user-section span {
+    font-size: 11px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo {
+    display: none;
+  }
+
+  .logoSolo {
+    font-family: "Playfair Display", serif;
+    color: #8c7851;
+    font-weight: 600;
+    display: inline;
+    margin-right: 20px;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+  }
+
+  .user-section span {
+    margin-right: 10px;
+  }
 }

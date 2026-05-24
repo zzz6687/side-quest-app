@@ -23,6 +23,9 @@ function App() {
         <Link to="/" className="logo">
           ✦ Side Quest
         </Link>
+        <Link to="/" className="logoSolo">
+          ✦
+        </Link>
         <div className="nav-links">
           <Link to="/home">Главная</Link>
           <Link to="/profile">Профиль</Link>
