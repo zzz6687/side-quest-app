@@ -43,6 +43,13 @@ const Profile = () => {
     return { title: "Новичок" };
   };
 
+  const getStatusLabel = (status) => {
+    if (status === "pending") return "На проверке";
+    if (status === "approved") return "Одобрено";
+    if (status === "rejected") return "Отклонено";
+    return status;
+  };
+
   return (
     <>
       <div className={styles.profileHeader}>
@@ -68,7 +75,7 @@ const Profile = () => {
                 <div className={styles.cardInfo}>
                   <p>Задание: {item.quest.title}</p>
                   <p>Очки: {item.quest.points}</p>
-                  <p>Статус: {item.status}</p>
+                  <p>Статус: {getStatusLabel(item.status)}</p>
                 </div>
               </div>
             )
