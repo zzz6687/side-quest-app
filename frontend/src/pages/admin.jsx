@@ -82,6 +82,13 @@ const Admin = () => {
     }
   };
 
+  const getStatusLabel = (status) => {
+    if (status === "pending") return "На проверке";
+    if (status === "approved") return "Одобрено";
+    if (status === "rejected") return "Отклонено";
+    return status;
+  };
+
   return (
     <div>
       <div className={styles.container}>
@@ -98,10 +105,10 @@ const Admin = () => {
                 )}
                 <div className={styles.cardInfo}>
                   <p>Задание: {item.quest.title}</p>
-                  <p>Статус: {item.status}</p>
+                  <p>Статус: {getStatusLabel(item.status)}</p>
                   <p>Дата: {item.date}</p>
                 </div>
-                {item.status === "в очереди" && (
+                {item.status === "pending" && (
                   <div className={styles.buttonsContainer}>
                     <button
                       className={styles.acceptBtn}
