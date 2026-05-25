@@ -1,10 +1,12 @@
-import { quests } from "../data/quests";
 import { useState } from "react";
 import styles from "./home.module.css";
 
 const Home = () => {
-  const [quest, setQuest] = useState(null);
-  const [status, setStatus] = useState(null); // null || pending || rejected || approved || submitted
+  const [quest, setQuest] = useState(() => {
+    const saved = localStorage.getItem("currentQuest");
+    return saved ? JSON.parse(saved) : null;
+  });
+  const [status, setStatus] = useState(null);
   const [previewImg, setPreviewImg] = useState(null);
   const [imageFile, setImageFile] = useState(null);
 
@@ -26,6 +28,10 @@ const Home = () => {
 
       const randomQuest = quests[Math.floor(Math.random() * quests.length)];
       setQuest(randomQuest);
+      localStorage.setItem("currentQuest", JSON.stringify(randomQuest));
+      setStatus(null);
+      setPreviewImg(null);
+      setImageFile(null);
     } catch (error) {
       alert("Ошибка соединения с сервером");
     }
@@ -68,6 +74,7 @@ const Home = () => {
       }
 
       setStatus("submitted");
+      localStorage.removeItem("currentQuest");
     } catch (error) {
       alert("Ошибка соединения с сервером");
     }
@@ -76,12 +83,8 @@ const Home = () => {
   return (
     <div className={styles.container}>
       {
-        <button
-          className={styles.getTaskBtn}
-          onClick={getRandomQuest}
-          disabled={!!status}
-        >
-          Получить задание
+        <button className={styles.getTaskBtn} onClick={getRandomQuest}>
+          {quest ? "Новое задание" : "Получить задание"}
         </button>
       }
 
