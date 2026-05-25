@@ -35,7 +35,7 @@ const Admin = () => {
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: "approved" }),
+          body: JSON.stringify({ status: "одобрено" }),
         }
       );
 
@@ -47,7 +47,7 @@ const Admin = () => {
       }
       setSubmissions((prev) =>
         prev.map((item) =>
-          item._id === id ? { ...item, status: "approved" } : item
+          item._id === id ? { ...item, status: "одобрено" } : item
         )
       );
     } catch (error) {
@@ -62,7 +62,7 @@ const Admin = () => {
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: "rejected" }),
+          body: JSON.stringify({ status: "отклонено" }),
         }
       );
 
@@ -74,7 +74,7 @@ const Admin = () => {
       }
       setSubmissions((prev) =>
         prev.map((item) =>
-          item._id === id ? { ...item, status: "rejected" } : item
+          item._id === id ? { ...item, status: "отклонено" } : item
         )
       );
     } catch (error) {
@@ -101,7 +101,7 @@ const Admin = () => {
                   <p>Статус: {item.status}</p>
                   <p>Дата: {item.date}</p>
                 </div>
-                {item.status === "pending" && (
+                {item.status === "в очереди" && (
                   <div className={styles.buttonsContainer}>
                     <button
                       className={styles.acceptBtn}

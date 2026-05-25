@@ -38,7 +38,7 @@ const Home = () => {
   };
 
   const acceptBtnClick = () => {
-    setStatus("pending");
+    setStatus("в очереди");
   };
 
   const handlePhoto = (e) => {
@@ -73,7 +73,7 @@ const Home = () => {
         return;
       }
 
-      setStatus("submitted");
+      setStatus("отправлено");
       localStorage.removeItem("currentQuest");
     } catch (error) {
       alert("Ошибка соединения с сервером");
@@ -101,7 +101,7 @@ const Home = () => {
           )}
         </div>
       )}
-      {status === "pending" && (
+      {status === "в очереди" && (
         <div className={styles.pendingContainer}>
           <p>Статус: на проверке</p>
           <label className={styles.choosefileBtn}>
@@ -121,7 +121,7 @@ const Home = () => {
           )}
         </div>
       )}
-      {status === "pending" && !previewImg && (
+      {status === "в очереди" && !previewImg && (
         <div className={styles.photoPlaceholder}>
           <p>вклей фото сюда</p>
         </div>
@@ -131,7 +131,7 @@ const Home = () => {
           <img src={previewImg} alt="preview" />
         </div>
       )}
-      {status === "submitted" && (
+      {status === "отправлено" && (
         <div className={styles.submittedStatus}>
           <p>Статус: отправлено</p>
         </div>
