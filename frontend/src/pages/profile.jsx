@@ -32,7 +32,7 @@ const Profile = () => {
   }, []);
 
   const totalPoints = submissions
-    .filter((item) => item.status === "approved")
+    .filter((item) => item.status === "Одобрено")
     .reduce((sum, item) => sum + item.quest.points, 0);
 
   const getLevel = () => {
@@ -44,7 +44,7 @@ const Profile = () => {
   };
 
   const getStatusLabel = (status) => {
-    if (status === "pending") return "На проверке";
+    if (status === "pending") return "на проверке";
     if (status === "approved") return "Одобрено";
     if (status === "rejected") return "Отклонено";
     return status;
