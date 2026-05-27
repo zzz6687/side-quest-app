@@ -92,7 +92,7 @@ const Admin = () => {
   return (
     <div>
       <div className={styles.container}>
-        {submissions.reverse().map(
+        {[...submissions].reverse().map(
           (item, index) =>
             item.quest && (
               <div className={styles.card} key={index}>
