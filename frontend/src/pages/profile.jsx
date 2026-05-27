@@ -32,7 +32,7 @@ const Profile = () => {
   }, []);
 
   const totalPoints = submissions
-    .filter((item) => item.status === "одобрено")
+    .filter((item) => item.status === "approved" || item.status === "одобрено")
     .reduce((sum, item) => sum + item.quest.points, 0);
 
   const getLevel = () => {
