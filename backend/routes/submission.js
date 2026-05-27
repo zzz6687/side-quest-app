@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const auth = require("../middleware/auth");
 const path = require("path");
 
 cloudinary.config({
@@ -45,12 +46,8 @@ router.get("/submission", async (req, res) => {
   }
 });
 
-router.post("/submission", (req, res) => {
-  upload.single("image")(req, res, async (err) => {
-    if (err) {
-      return res.status(400).json({ message: err.message });
-    }
-
+router.post("/submission", auth, upload.single("image"), async (req, res) => {
+  try {
     console.log("body:", req.body);
     console.log("file:", req.file);
 
@@ -61,14 +58,11 @@ router.post("/submission", (req, res) => {
       image: req.file ? req.file.path : null,
       date: req.body.date,
     });
-
-    try {
-      const savedSubmission = await submission.save();
-      res.status(201).json(savedSubmission);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-  });
+    const savedSubmission = await submission.save();
+    res.status(201).json(savedSubmission);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 router.patch("/submission/:id", async (req, res) => {
