@@ -27,6 +27,12 @@ app.get("/", (req, res) => {
   res.send("Server is running!");
 });
 
+setInterval(() => {
+  fetch("https://side-quest-backend-yzes.onrender.com/")
+    .then(() => console.log("activate server"))
+    .catch(() => console.log("failed"));
+}, 9 * 60 * 1000);
+
 app.listen(3001, () => {
   console.log("Server started on port 3001");
 });
